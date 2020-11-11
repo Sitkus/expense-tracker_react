@@ -16,7 +16,7 @@ const Article = styled.article`
 `;
 
 const H2 = styled.h2`
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 500;
 `;
 
@@ -27,7 +27,7 @@ const H3 = styled.h3`
 
 const H4 = styled.h4`
     font-weight: 600;
-    font-size: 2.4rem;
+    font-size: 2.8rem;
 `;
 
 const P = styled.p`

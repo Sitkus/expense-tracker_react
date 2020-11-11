@@ -18,7 +18,7 @@ const Section = styled.section`
 `;
 
 const H3 = styled.h3`
-font-size: 1.6rem;
+    font-size: 1.6rem;
     font-weight: 400;
 `;
 
@@ -28,6 +28,7 @@ const DivContainer = styled.div`
 
 const Span = styled.span`
     font-size: 1.6rem;
+    font-weight: 400;
 `;
 
 const DivColor = styled.div`
