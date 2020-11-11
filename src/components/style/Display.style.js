@@ -9,7 +9,7 @@ const Article = styled.article`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #f1f1f1;
+    background-color: white;
     padding: 3rem;
     margin: 3rem 0;
     text-align: center;
@@ -22,7 +22,7 @@ const H2 = styled.h2`
 
 const H3 = styled.h3`
     font-size: 1.6rem;
-    font-weight: 500;
+    font-weight: 400;
 `;
 
 const H4 = styled.h4`
@@ -32,18 +32,14 @@ const H4 = styled.h4`
 
 const P = styled.p`
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 500;
     color: ${props => props.income ? 'green' : 'darkred'};
 `;
 
-const Aside = styled.aside`
-
-`;
-
 const Line = styled.div`
-    background-color: #161616;
+    background-color: #ccc;
     width: 1px;
     height: 6rem;
 `;
 
-export {Section, Article, H2, H3, H4, P, Aside, Line};
+export {Section, Article, H2, H3, H4, P, Line};

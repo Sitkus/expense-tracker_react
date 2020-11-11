@@ -10,7 +10,7 @@ const Main = styled.main`
 
 const Section = styled.section`
     width: 60rem;
-    background-color: #f9f9f9;
+    background-color: #f1f1f1;
     padding: 5rem;
 `;
 

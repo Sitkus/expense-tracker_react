@@ -8,7 +8,7 @@ const Section = styled.section`
     position: relative;
     display: flex;
     justify-content: space-between;
-    background-color: #f1f1f1;
+    background-color: white;
     padding: 2rem;
     margin-bottom: 1rem;
 

@@ -11,7 +11,13 @@ const Transactions = ({transactions}) => {
                     <S.Section key={index}>
                         <S.H3>{transaction.title}</S.H3>
                         <S.DivContainer>
-                            <S.Span>+234</S.Span>
+                            <S.Span>
+                                {
+                                    transaction.amount >= 0 ?
+                                    '+' + transaction.amount :
+                                    transaction.amount
+                                }
+                            </S.Span>
                             <S.DivColor income={transaction.income}></S.DivColor>
                         </S.DivContainer>
                     </S.Section>

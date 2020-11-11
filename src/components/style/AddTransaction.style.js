@@ -18,13 +18,15 @@ const LabelSpan = styled.span`
 
 const Input = styled.input`
     border: none;
-    border: 1px solid #ccc;
+    outline: none;
+    // border: 1px solid #ccc;
     padding: 1.5rem 2rem;
     margin-bottom: 3rem;
 `;
 
 const Button = styled.button`
     border: none;
+    outline: none;
     background-color: #161616;
     color: white;
     font-size: 1.5rem;
