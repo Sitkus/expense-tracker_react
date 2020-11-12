@@ -4,11 +4,7 @@ import * as S from './App.style';
 import './App.css';
 
 const App = () => {
-  const [account, setAccount] = useState({    
-    balance: 0,
-    income: 0,
-    expense: 0
-  });
+  let [account, setAccount] = useState({});
 
   const [transactions, setTransactions] = useState([
     {
@@ -29,22 +25,58 @@ const App = () => {
   ]);
 
   const countAccount = () => {
+    account = {
+      balance: 0,
+      income: 0,
+      expense: 0
+    };
+
     transactions.forEach(transaction => {
       if (transaction.income) {
-        account.balance += transaction.amount
-        account.income += transaction.amount;
+        account.balance += Number(transaction.amount);
+        account.income += Number(transaction.amount);
       } else {
-        account.balance += transaction.amount;
-        account.expense += Math.abs(transaction.amount);
+        account.balance += Number(transaction.amount);
+        account.expense += Number(Math.abs(transaction.amount));
       }
     });
 
     setAccount({...account});
   }
 
+  const addTransaction = (e, fields, setFields) => {
+    const newTransaction = {};
+    let inputsEmpty = false;
+
+    fields.map(field => {
+      if (field.value === '') {
+        inputsEmpty = true;
+        field.error = true;
+      }
+
+      newTransaction[field.name] = field.value;
+
+      if (field.value >= 0) {
+        newTransaction.income = true;
+      } else {
+        newTransaction.income = false;
+      }
+    });
+
+    if (!inputsEmpty) {
+      transactions.push(newTransaction);
+      setTransactions([...transactions]);
+    } else {
+      setFields([...fields]);
+      console.log('Its empty!');
+    }
+
+    e.preventDefault();
+  }
+
   useEffect(() => {
     countAccount();
-  }, []);
+  }, [transactions]);
 
   return (
     <S.Main>
@@ -52,7 +84,7 @@ const App = () => {
         <S.H1>Expense Tracker</S.H1>
         <Display account={account} />
         <Transactions transactions={transactions} />
-        <AddTransaction />
+        <AddTransaction addTransaction={addTransaction} />
       </S.Section>
     </S.Main>
   );

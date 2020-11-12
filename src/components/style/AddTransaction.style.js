@@ -1,41 +1,44 @@
 import styled from 'styled-components';
 
 const Form = styled.form`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Label = styled.label`
-    font-size: 1.6rem;
-    font-weight: 400;
-    margin-bottom: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 0.7rem;
 `;
 
 const LabelSpan = styled.span`
-    color: gray;
-    font-size: 1.4rem;
+  display: block;
+  color: gray;
+  font-size: 1.4rem;
 `;
 
 const Input = styled.input`
-    border: none;
-    outline: none;
-    // border: 1px solid #ccc;
-    padding: 1.5rem 2rem;
-    margin-bottom: 3rem;
+  border: 1px solid ${props => props.error ? 'red' : '#f9f9f9'};
+  outline: none;
+  padding: 1.5rem 2rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
 `;
 
 const Button = styled.button`
-    border: none;
-    outline: none;
-    background-color: #161616;
-    color: white;
-    font-size: 1.5rem;
-    padding: 1.5rem 2rem;
-    cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #161616;
+  color: white;
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
 
-    &:hover {
-        background-color: darkgreen;
-    }
+  &:hover {
+    background-color: darkgreen;
+  }
 `;
 
 export {Form, Label, LabelSpan, Input, Button};
