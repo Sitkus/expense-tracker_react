@@ -4,33 +4,14 @@ import * as S from './App.style';
 import './App.css';
 
 const App = () => {
-  let [account, setAccount] = useState({});
-
-  const [transactions, setTransactions] = useState([
-    {
-      title: 'Salary received',
-      amount: 800,
-      income: true
-    },
-    {
-      title: 'Holiday to Miami',
-      amount: -1500,
-      income: false
-    },
-    {
-      title: 'React courses',
-      amount: -100,
-      income: false
-    }
-  ]);
+  let [account, setAccount] = useState({
+    balance: 0,
+    income: 0,
+    expense: 0
+  });
+  const [transactions, setTransactions] = useState([]);
 
   const countAccount = () => {
-    account = {
-      balance: 0,
-      income: 0,
-      expense: 0
-    };
-
     transactions.forEach(transaction => {
       if (transaction.income) {
         account.balance += Number(transaction.amount);
@@ -44,7 +25,7 @@ const App = () => {
     setAccount({...account});
   }
 
-  const addTransaction = (e, fields, setFields) => {
+  const addTransaction = (e, fields, setFields, clearFields) => {
     const newTransaction = {};
     let inputsEmpty = false;
 
@@ -66,9 +47,10 @@ const App = () => {
     if (!inputsEmpty) {
       transactions.push(newTransaction);
       setTransactions([...transactions]);
+
+      clearFields();
     } else {
       setFields([...fields]);
-      console.log('Its empty!');
     }
 
     e.preventDefault();

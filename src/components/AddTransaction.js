@@ -41,6 +41,14 @@ const AddTransaction = ({addTransaction}) => {
     setFields([...fields]);
   }
 
+  const clearFields = () => {
+    fields.map(field => {
+      field.value = '';
+    });
+
+    setFields([...fields]);
+  }
+
   return (
     <S.Form>
       <ST.H2>Add New Transaction</ST.H2>
@@ -58,12 +66,13 @@ const AddTransaction = ({addTransaction}) => {
                 name={field.name}
                 type={field.type} 
                 placeholder={field.placeholder} 
+                value={field.value}
                 error={field.error}
             />
           </S.Label>
         ))
       }
-      <S.Button onClick={e => addTransaction(e, fields, setFields)} name="add_transaction">Add Transaction</S.Button>
+      <S.Button onClick={e => addTransaction(e, fields, setFields, clearFields)} name="add_transaction">Add Transaction</S.Button>
     </S.Form>
   );
 }
